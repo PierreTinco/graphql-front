@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GraphqlService } from '../graphql.service';
+import { GraphqlService } from '../service/graphql.service';
 import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-dashboard',

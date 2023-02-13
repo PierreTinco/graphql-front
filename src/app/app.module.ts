@@ -11,25 +11,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular'
 import { HttpLink } from 'apollo-angular/http'
 import { InMemoryCache } from '@apollo/client/core'
-import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { HeroFormComponent } from './hero-form/hero-form.component';
-import { GraphQLModule } from './graphql.module';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent,
-    HeroSearchComponent,
-    HeroFormComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    GraphQLModule,
     ApolloModule, 
   ],
   providers: [    

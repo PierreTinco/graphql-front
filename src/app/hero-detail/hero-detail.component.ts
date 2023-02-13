@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Hero } from '../hero';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { HeroService } from '../hero.service';
-import { GraphqlService } from '../graphql.service';
+import { GraphqlService } from '../service/graphql.service';
 
 @Component({
   selector: 'app-hero-detail',
@@ -16,7 +15,6 @@ export class HeroDetailComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private heroService: HeroService,
     private location: Location,
     private graphqlService: GraphqlService
   ) {}
@@ -27,9 +25,7 @@ export class HeroDetailComponent {
   
   getHeroById(): void {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!);
-    this.graphqlService.getHeroById(id).subscribe(
-      data => this.hero = data.heroById
-      );
+    this.graphqlService.getHeroById(id).subscribe(data => { this.hero = data.heroById; });
   }
 
   goBack(): void {
@@ -37,10 +33,10 @@ export class HeroDetailComponent {
   }
 
   save(): void {
-    if (this.hero) {
-      this.heroService.updateHero(this.hero)
-        .subscribe(() => this.goBack());
-    }
+    // if (this.hero) {
+    //   this.heroService.updateHero(this.hero)
+    //     .subscribe(() => this.goBack());
+    // }
   }
   
 }
